@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Películas | Sigma Movies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <meta content="Sigma Movies - Películas más populares al momento.">
+  <meta property="og:type" content="website" />
+  <meta property="twitter:card" content="summary" />
+  <link rel="shortcut icon" href="https://ezivan.github.io/sigma-movies/assets/favicon.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://ezivan.github.io/sigma-movies/assets/favicon.svg">
+  <link rel="canonical" href="https://ezivan.github.io/sigma-movies/peliculas.html">
+  <meta name="twitter:title" property="og:title" content="Sigma Movies | Películas">
+  <meta content="Sigma Movies - Películas más populares al momento." name="twitter:description"
+    property="og:description">
+  <meta property="og:url" content="https://ezivan.github.io/sigma-movies/peliculas.html">
+  <meta property="twitter:url" content="https://ezivan.github.io/sigma-movies/peliculas.html">
+  <meta property="og:image" content="https://ezivan.github.io/sigma-movies/assets/mv-og-image.jpg">
+  <meta property="twitter:image" content="https://ezivan.github.io/sigma-movies/assets/mv-twitter-img.jpg">
+  <link rel="stylesheet" href="https://ezivan.github.io/sigma-movies/assets/style.css" />
+</head>
+
+<body>
+  <header class="header mb-1">
+    <div class="container">
+      <a href="index.html" class="logo primary-text">SMovies</a>
+      <button class="menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+          <path
+            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+        </svg>
+        <svg class="none" width="30px" height="30px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <title>ionicons-v5-m</title>
+          <path
+            d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z" />
+        </svg>
+      </button>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="tv-series.html">Series TV</a>
+        <a class="active" href="#">Películas</a>
+        <a href="recientes.html">Más recientes</a>
+        <a href="#">Mi lista</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="container mb-1">
+      <h2 class="mb-1 text-center">Películas más populares</h2>
+      <div class="movie-cards-container" id="movie-popular">
+      </div>
+      <article class="navigation-page-btn">
+        <button id="btn-next" class="btn" role="button"
+          data-url="https://api.themoviedb.org/3/movie/popular?api_key=69c75a356e5a4696e4349dabc24ab312&language=es-MX"
+          data-container="movie-popular">Cargar más</button>
+      </article>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>
+      <small>Página creada por <a href="https://www.facebook.com/profile.php?id=100064297605803" target="_blank"
+          rel="noopener"><b>@EZivan</b></a>
+        <br>
+        Todos los datos son proporcionados por <a href="https://www.themoviedb.org/" target="_blank"
+          rel="noopener"><i><b>The Movie Database</b></i></a></small>
+    </p>
+  </footer>
+  <template id="card-template">
+    <article class="movie-card">
+      <img class="movie-front-page" />
+      <h3 id="m-title"></h3>
+    </article>
+  </template>
+  <template id="modal-template">
+    <article class="modal">
+      <div class="modal-content">
+        <svg id="modal-close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1e5128"
+          class="bi bi-x-lg" viewBox="0 0 16 16">
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+        </svg>
+        <img src="" alt="" />
+        <div class="modal-data">
+          <h3></h3>
+          <div class="modal-additional-data">
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-calendar-event"
+                viewBox="0 0 16 16">
+                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+              <span id="release-date"></span>
+            </p>
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ac091c"
+                class="bi bi-chat-square-heart-fill" viewBox="0 0 16 16">
+                <path
+                  d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Zm6 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+              </svg>
+              <span id="popularity"></span>
+            </p>
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffff00" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+              <span id="vote-average"></span>
+            </p>
+          </div>
+          <p id="overview"></p>
+          <div class="modal-buttons">
+            <button class="btn" role="button">Ver Trailer</button>
+            <button class="btn" role="button">Ver Película</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+  <script src="assets/js/main.js" type="module"></script>
+</body>
+
+</html>
